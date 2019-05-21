@@ -14,8 +14,25 @@ class CreateNutricionsTable extends Migration
     public function up()
     {
         Schema::create('nutricions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idN');
+            $table->string('comidaN');
+            $table->string('frutaN');
+            $table->string('verduraN');
+            $table->string('proteinaN');
+            $table->string('aguaN',50)->nullable();
+            $table->string('1litroN',50)->nullable();
+            $table->string('2litroN',50)->nullable();
+            $table->string('3litroN',50)->nullable();
+            $table->string('4litroN',50)->nullable();
+            $table->string('5litroN',50)->nullable();
+            $table->string('restriccionN');
+            $table->string('1resN',50)->nullable();
+            $table->string('2res',50)->nullable();
+            $table->string('3resN',50)->nullable();
+            $table->string('4res',50)->nullable();
+            $table->string('5resN',50)->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -29,3 +46,4 @@ class CreateNutricionsTable extends Migration
         Schema::dropIfExists('nutricions');
     }
 }
+

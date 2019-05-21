@@ -1,27 +1,54 @@
-	header{
+.boton{
+	color: white;
+	background-color: #238276;
+}
+
+.borde2{
+	height: 50px;
+	text-align: center;
+	background: white;
+}
+
+
+header{
 	background-color:#238276;
+}
+
+html,body{
+	height: 100%;
+}
+
+.container{
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+
+.footer{	
+	background-color:#fc7323; 	
+	position: relative;
+	left:0px;
+	bottom: 0px;
+	height: 60px;
+	width:100%;
 	}
 
-	.footer{	
-  	background-color:#fc7323; 
-  	width:100%; 
-  	height:50px; 	
-  	}
 
-  	*{
+*{
 	font-family: 'Montserrat', sans-serif;
 	color: black;
-	}
+}
 
-	div.containertabla{
-		width: 1200px;
-		height: 350px;
-		background-color: white;
-	}
+div.containertabla{
+	width: 1200px;
+	height: 350px;
+	background-color: white;
+}
 
 
 .Espacio-Footer{
-margin-top:12px;
+padding-top:12px;
 }
 
 
@@ -45,6 +72,7 @@ margin-top:12px;
 	border-radius: 0.0.5rem 0.5rem 0;
 }
 
+/*Menú de contenido*/
 .MenuDesplegable{
 	width: 20%;
 	height:100%;
@@ -55,24 +83,25 @@ margin-top:12px;
 	display: flex;
 	transition: left 0.4s;
 	align-items: left;
-
+	/*overflow: auto;*/
+	list-style: none; 
+	z-index:1;
+	box-shadow: 2px 2px 10px #666;
 }
 
 .checkbox:checked ~ .MenuDesplegable{
 	left: 0;
 }
 
-ul a{
-}
 
-li{
+a{
 	list-style: none;
 	font-size: 1rem;
 	padding: 0.0.9rem;
 	margin: 1rem;
 	cursor: pointer;
 }
-li:hover{
+a:hover{
 	background-color: #fc7323;
 }
 

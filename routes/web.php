@@ -86,6 +86,10 @@ Route::middleware(['auth'])->group(function(){
 	Route::get('formatos/{formato}/edit','FormatoController@edit')->name('formatos.edit')
 		->middleware('permission:formatos.edit');
 
+		//Entidad
+	Route::get('entidads/create','EntidadController@create')->name('entidads.create')
+		->middleware('permission:entidads.create');
+
 
 	//Nutricion
 	Route::post('nutricions/store','NutricionController@store')->name('nutricions.store')
@@ -108,6 +112,18 @@ Route::middleware(['auth'])->group(function(){
 
 	Route::get('nutricions/{nutricion}/edit','NutricionController@edit')->name('nutricions.edit')
 		->middleware('permission:nutricions.edit');
+
+		//Fruta
+	Route::get('frutas/create','FrutaController@create')->name('frutas.create')
+		->middleware('permission:frutas.create');
+
+		//Verdura
+	Route::get('verduras/create','VerduraController@create')->name('verduras.create')
+		->middleware('permission:verduras.create');
+
+		//Proteina
+	Route::get('proteinas/create','ProteinaController@create')->name('proteinas.create')
+		->middleware('permission:proteinas.create');
 
 
 	//Analisis

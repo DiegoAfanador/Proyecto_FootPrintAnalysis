@@ -14,7 +14,9 @@ class TabulacionController extends Controller
      */
     public function index()
     {
-        //
+        $tabulacions = tabulacion::latest()->paginate(5);
+
+        return view('tabulacions.index', compact('tabulacions'));
     }
 
     /**
@@ -24,7 +26,7 @@ class TabulacionController extends Controller
      */
     public function create()
     {
-        //
+        return view('tabulacions.create');
     }
 
     /**
@@ -35,51 +37,124 @@ class TabulacionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+
+            'codigoTab' => 'nullable',
+            'fechaRegistroTab' => 'nullable',
+            'noDocumentoApdz' => 'required',
+            'codigoAna' => 'nullable',
+
+            // Atributos de huella plantar derecha(Pd=Pie derecho)
+            'faltaImpresionPdTab' => 'nullable',
+            'continuidadImpresionPdTab' => 'nullable',
+            'medidaFundamentalPdTab' => 'nullable',
+            'resultadoXPdTab' => 'nullable',
+            'resultadoYPdTab' => 'nullable',
+            'resultadoAyPdTab' => 'nullable',
+            'resultadoTaPdTab' => 'nullable',
+            'resultadoLongitudPdTab' => 'nullable',
+            'resultado%xPdTab' => 'nullable',
+            'tipoPdTab' => 'nullable',
+
+            // Atributos de huella plantar izquierdo(Pi=Pie izquierdo)
+            'faltaImpresionPiTab' => 'nullable',
+            'continuidadImpresionPiTab' => 'nullable',
+            'medidaFundamentalPiTab' => 'nullable',
+            'resultadoXPiTab' => 'nullable',
+            'resultadoYPiTab' => 'nullable',
+            'resultadoAyPiTab' => 'nullable',
+            'resultadoTaPiTab' => 'nullable',
+            'resultadoLongitudPiTab' => 'nullable',
+            'resultado%xPiTab' => 'nullable',
+            'tipoPiTab' => 'nullable',
+
+        ]);
+
+        tabulacion::create($request->all());
+
+        return redirect()->route('tabulacions.index')->with('message','Tabulación Hecho');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Tabulacion  $tabulacion
+     * @param  \App\tabulacion  $tabulacion
      * @return \Illuminate\Http\Response
      */
-    public function show(Tabulacion $tabulacion)
+    public function show(tabulacion $tabulacion)
     {
-        //
+        return view('tabulacions.show', compact('tabulacion'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Tabulacion  $tabulacion
+     * @param  \App\tabulacion  $tabulacion
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tabulacion $tabulacion)
+    public function edit(tabulacion $tabulacion)
     {
-        //
+        return view('tabulacions.edit', compact('tabulacion'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tabulacion  $tabulacion
+     * @param  \App\tabulacion  $tabulacion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tabulacion $tabulacion)
+    public function update(Request $request, tabulacion $tabulacion)
     {
-        //
+        $request->validate([
+
+            'codigoTab' => 'nullable',
+            'fechaRegistroTab' => 'nullable',
+            'noDocumentoApdz' => 'required',
+            'codigoAna' => 'nullable',
+
+            // Atributos de huella plantar derecha(Pd=Pie derecho)
+            'faltaImpresionPdTab' => 'nullable',
+            'continuidadImpresionPdTab' => 'nullable',
+            'medidaFundamentalPdTab' => 'nullable',
+            'resultadoXPdTab' => 'nullable',
+            'resultadoYPdTab' => 'nullable',
+            'resultadoAyPdTab' => 'nullable',
+            'resultadoTaPdTab' => 'nullable',
+            'resultadoLongitudPdTab' => 'nullable',
+            'resultado%xPdTab' => 'nullable',
+            'tipoPdTab' => 'nullable',
+
+            // Atributos de huella plantar izquierda(Pi=Pie izquierdo)
+            'faltaImpresionPiTab' => 'nullable',
+            'continuidadImpresionPiTab' => 'nullable',
+            'medidaFundamentalPiTab' => 'nullable',
+            'resultadoXPiTab' => 'nullable',
+            'resultadoYPiTab' => 'nullable',
+            'resultadoAyPiTab' => 'nullable',
+            'resultadoTaPiTab' => 'nullable',
+            'resultadoLongitudPiTab' => 'nullable',
+            'resultado%xPiTab' => 'nullable',
+            'tipoPiTab' => 'nullable',
+
+        ]);
+
+        $tabulacion->update($request->all());
+
+        return redirect()->route('tabulacions.index')->with('message','Tabulación Actualizado');        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Tabulacion  $tabulacion
+     * @param  \App\tabulacion  $tabulacion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Tabulacion $tabulacion)
+    public function destroy(tabulacion $tabulacion)
     {
-        //
+        $tabulacion->delete();
+
+        return redirect()->route('tabulacions.index')->with('message','Análisis Eliminado');
     }
 }
